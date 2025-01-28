@@ -80,51 +80,49 @@ body {
 #animal-video-section{
   min-height: 100vh;
   width:100%;
-  /* background-color: #FFF6DA; */
+  margin-bottom: 40px;
+  background-color: #FFF6DA;
 }
 
 #animal-video-section h2,p{
   display: flex;
   align-items: center;
   justify-content: center;
-  
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    color: #2D6A4F;  /* Dark green */
-    /* margin-bottom: 20px; */
+  font-size: 2rem;
+  /* margin-bottom: 20px; */
+  font-family: 'Poppins', sans-serif;
+  color: whitesmoke; 
+  /* background-color: whitesmoke; */
+
 }
 
 #animal-video-section p{
-  background-color:#A94A4A ;
-  color:#F4D793;
-  margin-bottom: 40px;
-  font-family: 'Lora', serif;
-  font-size:1.2rem;
+  margin-top: 20px;
+  background-color:#9d4b4b ;
+  color: bisque;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-style: italic;
 }
-
 .slider {
   position: relative;
   overflow: hidden;
   max-width: 1200px;
   margin: auto;
 }
-
 .video-container {
   display: flex; 
   gap: 20px;
   transition: transform 0.5s ease-in-out;
 }
 .video-container iframe{
-  /* flex: 1 1 calc(33% - 10px); Makes each iframe take 1/3rd of the container, minus gap */
-  height: 200px; 
+  height: 350px; 
   width: 100%; 
   object-fit: cover; 
-}
-.video-container .video{
-  /* flex: 1 1 calc(33% - 10px); Makes each iframe take 1/3rd of the container, minus gap */
-  height: 200px; 
-  width: 100%; 
-  object-fit: cover; 
+  border-radius: 15px;
+  border: 5px solid #a9c5a1;
+  background-color:burlywood ;
 }
 
 .video-item {
@@ -140,7 +138,8 @@ body {
   transform: translateY(-5px);
 }
 
-button {
+/* Specific styles for the animal section buttons */
+.animal-section button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -153,18 +152,17 @@ button {
   border-radius: 50%;
 }
 
-.prev-btn {
+.animal-section .prev-btn {
   left: 10px;
 }
 
-.next-btn {
+.animal-section .next-btn {
   right: 10px;
 }
 
-button:hover {
+.animal-section button:hover {
   background: rgba(0, 0, 0, 0.8);
 }
-
 
 /* Meditation Place Section(Meditation-guide page) */
 #content {
@@ -428,38 +426,77 @@ header h4 {
 }
 
 /* QUIZ - SECTION STYLING*/
-
-#quiz-section {
-  padding: 20px;
-  background-color: #f0f8ff;
+ 
+ .quiz-container {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
 }
 
-.quiz-container {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
+.quiz-title h2{
+  color: #9d4b4b;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: white;
 }
 
-.question {
+.quiz-description {
+  color: #606060;
+  font-size: 1rem;
   margin-bottom: 20px;
 }
 
-.options label {
-  font-size: 18px;
-  margin-left: 10px;
+.question {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
+.options label {
+  display: block;
+  background-color: #e3f2fd;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options label:hover {
+  background-color: #bbdefb;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.nav-btn {
+  background-color: #4caf50;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.nav-btn:hover {
   background-color: #45a049;
 }
 
+#prev-btn {
+  background-color: #2196f3;
+}
 
+#prev-btn:hover {
+  background-color: #1976d2;
+}

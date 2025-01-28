@@ -95,102 +95,138 @@ function audio() {
     audio.pause();
   }
 
-  //Themes Slider Script
+  
 };
 audio();
 
 
-//ThemeSlider  script
-
-function themeSlider() {
-  // Get all the slides and the indicator container
-  const slides = document.querySelectorAll("#carousel-items > .carousel-slide");
-  const indicatorsContainer = document.getElementById("indicators");
-  let currentIndex = 0;
-
-  // Create indicators dynamically based on the number of slides
-  slides.forEach((_, index) => {
-    const button = document.createElement("button");
-    button.classList.add("w-4", "h-4", "bg-gray-500", "rounded-full", "hover:bg-white");
-    button.dataset.index = index;
-    indicatorsContainer.appendChild(button);
-  });
-
-  // Function to update the carousel and indicator state
-  function updateCarousel(index) {
-    // Update slides
-    slides.forEach((slide, idx) => {
-      slide.classList.toggle("active", idx === index);
-    });
-
-    // Update indicators
-    document.querySelectorAll("#indicators button").forEach((btn, idx) => {
-      btn.classList.toggle("bg-white", idx === index);
-      btn.classList.toggle("bg-gray-500", idx !== index);
-    });
-
-    // Stop any currently playing audio
-    document.querySelectorAll("audio").forEach(audio => {
-      audio.pause();
-      audio.currentTime = 0; // Reset audio to start
-    });
-
-    // Play the audio for the current slide
-    const currentAudio = document.getElementById(`audio${index + 1}`);
-    currentAudio.play();
-  }
-
-  // Add click event for each indicator button
-  document.querySelectorAll("#indicators button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      currentIndex = parseInt(btn.dataset.index);
-      updateCarousel(currentIndex);
-    });
-  });
-
-  // Add event listeners for next and previous buttons
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel(currentIndex);
-  });
-
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel(currentIndex);
-  });
-
-  // Initialize the carousel
-  updateCarousel(currentIndex);
-
-};
-themeSlider();
-
-
 //BLOG WEBSITE.
 function blogButton(){
-document.querySelectorAll('.read-more').forEach(button => {
-  button.addEventListener('click', () => {
-    alert('This will take you to the detailed blog content.');
-    // Redirect to another page or expand the article.
+  document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', () => {
+      alert('This will take you to the detailed blog content.');
+      
+    });
   });
-});
-};
+  };
+blogButton();
 
-//Blog Quiz
-function submitQuiz() {
-  let score = 0;
 
-  // Check answers for question 1
-  if (document.querySelector('input[name="question1"]:checked')?.value === "A") {
-    score++;
+function blogQuiz(){
+
+const questions = [
+  {
+    question: "What is the largest rainforest in the world?",
+    options: ["Amazon Rainforest", "Congo Rainforest", "Daintree Rainforest", "Sumatran Rainforest"],
+    correct: 0, // Index 
+  },
+  {
+    question: "Which tree is known as the 'Tree of Life'?",
+    options: ["Oak Tree", "Baobab Tree", "Maple Tree", "Redwood Tree"],
+    correct: 1,
+  },
+  {
+    question: "Which natural element is most essential for plant growth?",
+    options: ["Water", "Sunlight", "Nitrogen", "All of the above"],
+    correct: 3,
+  },
+  {
+    question: "Which is the tallest mountain in the world?",
+    options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
+    correct: 0,
+  },
+  {
+    question: "Which of these animals is a keystone species?",
+    options: ["Elephant", "Tiger", "Beaver", "All of the above"],
+    correct: 3,
+  },
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const quizContent = document.getElementById("quiz-content");
+const prevBtn = document.getElementById("prev-btn");
+const nextBtn = document.getElementById("next-btn");
+
+function loadQuestion(index) {
+  const questionData = questions[index];
+
+  if (!questionData) {
+    console.error("Question data not found for index:", index);
+    return;
   }
 
-  // Check answers for question 2
-  if (document.querySelector('input[name="question2"]:checked')?.value === "A") {
-    score++;
-  }
+  quizContent.innerHTML = `
+    <p class="question">${questionData.question}</p>
+    <div class="options">
+      ${questionData.options
+        .map(
+          (option, i) => `
+        <label>
+          <input type="radio" name="question${index}" value="${i}"> ${option}
+        </label>
+      `
+        )
+        .join("")}
+    </div>
+  `;
 
-  // Display result
-  alert("Your score: " + score + "/2");
+  prevBtn.style.display = index === 0 ? "none" : "inline-block";
+  nextBtn.textContent = index === questions.length - 1 ? "Submit" : "Next ❯";
 }
 
+function checkAnswer(index) {
+  const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+  if (selectedOption) {
+    const answer = parseInt(selectedOption.value, 10);
+    if (answer === questions[index].correct) {
+      score++;
+    }
+  }
+}
+
+nextBtn.addEventListener("click", () => {
+  
+  checkAnswer(currentQuestion);
+
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    loadQuestion(currentQuestion);
+  } else {
+  
+    quizContent.innerHTML = `
+      <h3>Your Result</h3>
+      <p>You scored ${score} out of ${questions.length}!</p>
+      <p>${getNatureCategory(score)}</p>
+    `;
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  
+  currentQuestion--;
+  loadQuestion(currentQuestion);
+});
+
+//  function to determine nature personality
+function getNatureCategory(score) {
+  const percentage = (score / questions.length) * 100;
+
+  if (percentage >= 80) {
+    return "Nature Explorer: You’re deeply connected to the natural world!";
+  } else if (percentage >= 60) {
+    return "Nature Enthusiast: You enjoy and appreciate nature regularly.";
+  } else if (percentage >= 40) {
+    return "Nature Learner: You’re curious about nature but have more to discover.";
+  } else {
+    return "Nature Newbie: Start exploring the wonders of nature!";
+  }
+}
+
+loadQuestion(currentQuestion);
+};
+
+blogQuiz();

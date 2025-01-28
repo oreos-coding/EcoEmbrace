@@ -123,71 +123,37 @@
             </article>
           </div>
         </section>
-
-
       </div>
-
-      <section id="quiz-section">
-        <h2>Quiz: How Well Do You Know Nature?</h2>
-
+  
         <div class="quiz-container">
-          <div class="question">
-            <p>1. What is the healing plant known for reducing stress?</p>
-            <div class="options">
-              <input type="radio" id="option1" name="question1" value="A">
-              <label for="option1">A) Ashwagandha</label><br>
-
-              <input type="radio" id="option2" name="question1" value="B">
-              <label for="option2">B) Chamomile</label><br>
-
-              <input type="radio" id="option3" name="question1" value="C">
-              <label for="option3">C) Aloe Vera</label><br>
-
-              <input type="radio" id="option4" name="question1" value="D">
-              <label for="option4">D) Rosemary</label><br>
-            </div>
-          </div>
-
-          <div class="question">
-            <p>2. Which animal is known for helping reduce stress and anxiety?</p>
-            <div class="options">
-              <input type="radio" id="option5" name="question2" value="A">
-              <label for="option5">A) Panda</label><br>
-
-              <input type="radio" id="option6" name="question2" value="B">
-              <label for="option6">B) Tiger</label><br>
-
-              <input type="radio" id="option7" name="question2" value="C">
-              <label for="option7">C) Elephant</label><br>
-
-              <input type="radio" id="option8" name="question2" value="D">
-              <label for="option8">D) Dog</label><br>
-            </div>
-          </div>
-
-          <button id="submit-quiz" onclick="submitQuiz()">Submit Quiz</button>
+          <h2 class="quiz-title">Test Your Nature Knowledge!</h2>
+          <p class="quiz-description">Answer the questions to find out what kind of nature person - you are!</p>
+      
+          <!-- Question and Options -->
+          <div id="quiz-content"></div>
+      
+          <!-- Navigation Buttons -->
+          <button id="prev-btn" class="nav-btn" style="display: none;">❮ Previous</button>
+          <button id="next-btn" class="nav-btn">Next ❯</button>
         </div>
-      </section>
+      
+    </div>
+  </div>
+ 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-      <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
