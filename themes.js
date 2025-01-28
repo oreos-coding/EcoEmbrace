@@ -39,7 +39,7 @@ function themeSlider() {
     button.dataset.index = index;
     indicatorsContainer.appendChild(button);
   });
-  
+
   function updateCarousel(index) {
     // Update slides
     slides.forEach((slide, idx) => {

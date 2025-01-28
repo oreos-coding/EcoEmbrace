@@ -51,37 +51,37 @@ tl.to("#page1 #video-container video", {
 }, "anim");
 
 
-function animalSlider(){
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-  
-  const slider = document.querySelector(".video-container");
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
+function animalSlider() {
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded and parsed");
 
-  if (slider && prevBtn && nextBtn) {
-    console.log("Elements found!");
-  } else {
-    console.error("Error: Elements not found!");
-  }
+    const slider = document.querySelector(".video-container");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
 
-  let scrollAmount = 0;
+    if (slider && prevBtn && nextBtn) {
+      console.log("Elements found!");
+    } else {
+      console.error("Error: Elements not found!");
+    }
 
-  prevBtn.addEventListener("click", () => {
-    console.log("Previous button clicked");
-    scrollAmount -= slider.offsetWidth;
-    if (scrollAmount < 0) scrollAmount = 0;
-    slider.style.transform = `translateX(-${scrollAmount}px)`;
+    let scrollAmount = 0;
+
+    prevBtn.addEventListener("click", () => {
+      console.log("Previous button clicked");
+      scrollAmount -= slider.offsetWidth;
+      if (scrollAmount < 0) scrollAmount = 0;
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+    });
+
+    nextBtn.addEventListener("click", () => {
+      console.log("Next button clicked");
+      scrollAmount += slider.offsetWidth;
+      const maxScroll = slider.scrollWidth - slider.offsetWidth;
+      if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+    });
   });
-
-  nextBtn.addEventListener("click", () => {
-    console.log("Next button clicked");
-    scrollAmount += slider.offsetWidth;
-    const maxScroll = slider.scrollWidth - slider.offsetWidth;
-    if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-    slider.style.transform = `translateX(-${scrollAmount}px)`;
-  });
-});
 };
 animalSlider();
 
@@ -95,69 +95,84 @@ function audio() {
     audio.pause();
   }
 
-  
+
 };
 audio();
 
 
 //BLOG WEBSITE.
-function blogButton(){
+function blogButton() {
   document.querySelectorAll('.read-more').forEach(button => {
     button.addEventListener('click', () => {
       alert('This will take you to the detailed blog content.');
-      
+
     });
   });
-  };
+};
 blogButton();
 
 
-function blogQuiz(){
+function blogQuiz() {
 
-const questions = [
-  {
-    question: "What is the largest rainforest in the world?",
-    options: ["Amazon Rainforest", "Congo Rainforest", "Daintree Rainforest", "Sumatran Rainforest"],
-    correct: 0, // Index 
-  },
-  {
-    question: "Which tree is known as the 'Tree of Life'?",
-    options: ["Oak Tree", "Baobab Tree", "Maple Tree", "Redwood Tree"],
-    correct: 1,
-  },
-  {
-    question: "Which natural element is most essential for plant growth?",
-    options: ["Water", "Sunlight", "Nitrogen", "All of the above"],
-    correct: 3,
-  },
-  {
-    question: "Which is the tallest mountain in the world?",
-    options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
-    correct: 0,
-  },
-  {
-    question: "Which of these animals is a keystone species?",
-    options: ["Elephant", "Tiger", "Beaver", "All of the above"],
-    correct: 3,
-  },
-];
+  const questions = [
+    {
+      question: "One of the early greek philosophers that started the concept about nature is?",
+      options: ["Plato", "Aristotle", "Socrates", "pythagoras"],
+      correct: 0, // Index 
+    },
+    {
+      question: "Who is the happiest animal in the world?",
+      options: ["Quokka", "Panda", "Kitten", "Koala"],
+      correct: 0,
+    },
+    {
+      question: "Which of these types of symmetry do plants possess",
+      options: ["Bilateral symmetry", "Mirror symmetry", "Spatial Symmetry", "Radial symmetry"],
+      correct: 3,
+    },
+    {
+      question: "Which is the official name of the northern lights?",
+      options: ["Aurora Borealis", "None", "Aurora Illeias", "Aurora Australis"],
+      correct: 0,
+    },
+    {
+      question: "Which of these animals is a keystone species?",
+      options: ["Elephant", "Tiger", "Beaver", "All of the above"],
+      correct: 3,
+    },
+    {
+      question: "Which of the Earth's five oceans covers the smallest area?",
+      options: ["Indian", "Arctic", "Antarctic", "Pacific"],
+      correct: 1,
+    },
+    {
+      question: "what is the only 'living' organism that can be viewed from space?",
+      options: ["The Coral", "The Great Barrier Reef", "Dinosauras", "Ostrich"],
+      correct: 1,
+    },
+    {
+      question: "Which waterfall is the world's tallest(on land)",
+      options: ["Meghalaya Falls", "Angel Falls", "Jhari Falls", "Lalguli Falls"],
+      correct: 1,
+    },
+  ];
 
-let currentQuestion = 0;
-let score = 0;
+  let currentQuestion = 0;
+  let score = 0;
 
-const quizContent = document.getElementById("quiz-content");
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
+  const quizContent = document.getElementById("quiz-content");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
 
-function loadQuestion(index) {
-  const questionData = questions[index];
+  function loadQuestion(index) {
+    const questionData = questions[index];
 
-  if (!questionData) {
-    console.error("Question data not found for index:", index);
-    return;
-  }
+    if (!questionData) {
+      console.error("Question data not found for index:", index);
+      return;
+    }
 
-  quizContent.innerHTML = `
+    quizContent.innerHTML = `
     <p class="question">${questionData.question}</p>
     <div class="options">
       ${questionData.options
@@ -172,61 +187,61 @@ function loadQuestion(index) {
     </div>
   `;
 
-  prevBtn.style.display = index === 0 ? "none" : "inline-block";
-  nextBtn.textContent = index === questions.length - 1 ? "Submit" : "Next ❯";
-}
+    prevBtn.style.display = index === 0 ? "none" : "inline-block";
+    nextBtn.textContent = index === questions.length - 1 ? "Submit" : "Next ❯";
+  }
 
-function checkAnswer(index) {
-  const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
-  if (selectedOption) {
-    const answer = parseInt(selectedOption.value, 10);
-    if (answer === questions[index].correct) {
-      score++;
+  function checkAnswer(index) {
+    const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+    if (selectedOption) {
+      const answer = parseInt(selectedOption.value, 10);
+      if (answer === questions[index].correct) {
+        score++;
+      }
     }
   }
-}
 
-nextBtn.addEventListener("click", () => {
-  
-  checkAnswer(currentQuestion);
+  nextBtn.addEventListener("click", () => {
 
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    loadQuestion(currentQuestion);
-  } else {
-  
-    quizContent.innerHTML = `
+    checkAnswer(currentQuestion);
+
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      loadQuestion(currentQuestion);
+    } else {
+
+      quizContent.innerHTML = `
       <h3>Your Result</h3>
       <p>You scored ${score} out of ${questions.length}!</p>
       <p>${getNatureCategory(score)}</p>
     `;
-    prevBtn.style.display = "none";
-    nextBtn.style.display = "none";
-  }
-});
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+  });
 
-prevBtn.addEventListener("click", () => {
-  
-  currentQuestion--;
+  prevBtn.addEventListener("click", () => {
+
+    currentQuestion--;
+    loadQuestion(currentQuestion);
+  });
+
+  //  function to determine nature personality
+  function getNatureCategory(score) {
+    const percentage = (score / questions.length) * 100;
+
+    if (percentage >= 80) {
+      return "Nature Explorer: You’re deeply connected to the natural world!";
+    } else if (percentage >= 60) {
+      return "Nature Enthusiast: You enjoy and appreciate nature regularly.";
+    } else if (percentage >= 40) {
+      return "Nature Learner: You’re curious about nature but have more to discover.";
+    } else {
+      return "Nature Newbie: Start exploring the wonders of nature!";
+    }
+  }
+
   loadQuestion(currentQuestion);
-});
-
-//  function to determine nature personality
-function getNatureCategory(score) {
-  const percentage = (score / questions.length) * 100;
-
-  if (percentage >= 80) {
-    return "Nature Explorer: You’re deeply connected to the natural world!";
-  } else if (percentage >= 60) {
-    return "Nature Enthusiast: You enjoy and appreciate nature regularly.";
-  } else if (percentage >= 40) {
-    return "Nature Learner: You’re curious about nature but have more to discover.";
-  } else {
-    return "Nature Newbie: Start exploring the wonders of nature!";
-  }
-}
-
-loadQuestion(currentQuestion);
 };
 
 blogQuiz();

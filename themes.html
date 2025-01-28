@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoEmbrace</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
-   <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-    <link rel = "stylesheet" href = "style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoEmbrace</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body class="bg-gray-200">
 
-    <!-- Navbar -->
-    <div id="main">
-      <div id="nav">
-        <!-- TOP NAVIGATION BAR-->
+  <!-- Navbar -->
+  <div id="main">
+    <div id="nav">
+      <!-- TOP NAVIGATION BAR-->
       <div id="nav-part2">
-        <h4><a href = "index.html">Home</a></h4> 
-        <h4><a href = "meditation.html">Meditation-Guide</a></h4>
-        <h4><a href = "themes.html">Themes</a></h4>
-        <h4><a href = "blog.html">Blog</a></h4>
-     </div>
+        <h4><a href="index.html">Home</a></h4>
+        <h4><a href="meditation.html">Meditation-Guide</a></h4>
+        <h4><a href="themes.html">Themes</a></h4>
+        <h4><a href="blog.html">Blog</a></h4>
+      </div>
     </div>
 
-<div class="carousel-container">
-    <!-- Carousel Slides -->
-    <div id="carousel-items">
-        
-        <!--Slide1-->   
-        <div class="carousel-slide active" data-audio="audio1"><video autoplay loop muted src="/Video/Walking with grass.mp4" alt="Slide 1" class="w-full h-full object-cover"></div>
+    <div class="carousel-container">
+      <!-- Carousel Slides -->
+      <div id="carousel-items">
+
+        <!--Slide1-->
+        <div class="carousel-slide active" data-audio="audio1"><video autoplay loop muted
+            src="/Video/Walking with grass.mp4" alt="Slide 1" class="w-full h-full object-cover"></div>
         <!--Slide2-->
-        <div class="carousel-slide" data-audio="audio2"><video autoplay loop muted src="/Video/waterfall.mp4" alt="Slide 2" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio2"><video autoplay loop muted src="/Video/waterfall.mp4"
+            alt="Slide 2" class="w-full h-full object-cover"></div>
         <!--Slide3-->
-        <div class="carousel-slide" data-audio="audio3"><video autoplay loop muted src="/Video/waterflowing.mp4" alt="Slide 3" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio3"><video autoplay loop muted src="/Video/waterflowing.mp4"
+            alt="Slide 3" class="w-full h-full object-cover"></div>
         <!--Slide4-->
-        <div class="carousel-slide" data-audio="audio4"><video autoplay loop muted src="/Video/Rainy.mp4" alt="Slide 4" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio4"><video autoplay loop muted src="/Video/Rainy.mp4" alt="Slide 4"
+            class="w-full h-full object-cover"></div>
         <!--Slide5-->
-        <div class="carousel-slide" data-audio="audio5"><video autoplay loop muted src = "Video/calm serenity.mp4" alt="Slide 5" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio5"><video autoplay loop muted src="Video/calm serenity.mp4"
+            alt="Slide 5" class="w-full h-full object-cover"></div>
         <!--Slide6-->
-        <div class="carousel-slide" data-audio="audio6"><video autoplay loop muted src="/Video/Wind blowing.mp4" alt="Slide 6" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio6"><video autoplay loop muted src="/Video/Wind blowing.mp4"
+            alt="Slide 6" class="w-full h-full object-cover"></div>
         <!--Slide7-->
-        <div class="carousel-slide" data-audio="audio7"><video autoplay loop muted src="/Video/autumn.mp4" alt="Slide 7" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio7"><video autoplay loop muted src="/Video/autumn.mp4" alt="Slide 7"
+            class="w-full h-full object-cover"></div>
         <!--Slide8-->
-        <div class="carousel-slide" data-audio="audio8"><video autoplay loop muted src="/Video/sunset.mp4" alt="Slide 8" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio8"><video autoplay loop muted src="/Video/sunset.mp4" alt="Slide 8"
+            class="w-full h-full object-cover"></div>
         <!--Slide9-->
-        <div class="carousel-slide" data-audio="audio9"><video autoplay loop muted src="/Video/snow.mp4" alt="Slide 9" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio9"><video autoplay loop muted src="/Video/snow.mp4" alt="Slide 9"
+            class="w-full h-full object-cover"></div>
         <!--Slide10-->
-        <div class="carousel-slide" data-audio="audio10"><video autoplay loop muted src="/Video/Birds.mp4" alt="Slide 10" class="w-full h-full object-cover"></div>
+        <div class="carousel-slide" data-audio="audio10"><video autoplay loop muted src="/Video/Birds.mp4"
+            alt="Slide 10" class="w-full h-full object-cover"></div>
+      </div>
+
+
+      <!-- Indicators -->
+      <div id="indicators" class="flex justify-center mt-4 space-x-2"></div>
+
+      <!-- Controls -->
+      <button id="prevBtn"
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">Prev</button>
+      <button id="nextBtn"
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">Next</button>
     </div>
 
-
-    <!-- Indicators -->
-    <div id="indicators" class="flex justify-center mt-4 space-x-2"></div>
-
-    <!-- Controls -->
-    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">Prev</button>
-    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">Next</button>
-</div>
-
-<!-- Audio Files -->
-<audio autoplay loop id="audio1" src="/Audio/Walking on Grass  Footsteps on Tall Grass  Sound Effects.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio2" src="/Audio/nature-sound-near-river-or-waterfall-247409.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio3" src="/Audio/shallow-river-28466.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio4" src="/Audio/soft-rain-ambient-111154.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio5" src="/Audio/calm-nature-sounds-196258.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio6" src="/Audio/small-wind-272153.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio7" src="/Audio/sound-effect-walking-through-autumn-leaves-247572.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio8" src="/Audio/sound-of-gentle-ocean-waves-lapping-against-the-shore-hd-260724.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio9" src="/Audio/walking-on-snow-268442.mp3" preload="auto"></audio>
-<audio autoplay loop id="audio10" src="/Audio/birds-chirping-75156.mp3" preload="auto"></audio>
+    <!-- Audio Files -->
+    <audio autoplay loop id="audio1" src="/Audio/Walking on Grass  Footsteps on Tall Grass  Sound Effects.mp3"
+      preload="auto"></audio>
+    <audio autoplay loop id="audio2" src="/Audio/nature-sound-near-river-or-waterfall-247409.mp3"
+      preload="auto"></audio>
+    <audio autoplay loop id="audio3" src="/Audio/shallow-river-28466.mp3" preload="auto"></audio>
+    <audio autoplay loop id="audio4" src="/Audio/soft-rain-ambient-111154.mp3" preload="auto"></audio>
+    <audio autoplay loop id="audio5" src="/Audio/calm-nature-sounds-196258.mp3" preload="auto"></audio>
+    <audio autoplay loop id="audio6" src="/Audio/small-wind-272153.mp3" preload="auto"></audio>
+    <audio autoplay loop id="audio7" src="/Audio/sound-effect-walking-through-autumn-leaves-247572.mp3"
+      preload="auto"></audio>
+    <audio autoplay loop id="audio8" src="/Audio/sound-of-gentle-ocean-waves-lapping-against-the-shore-hd-260724.mp3"
+      preload="auto"></audio>
+    <audio autoplay loop id="audio9" src="/Audio/walking-on-snow-268442.mp3" preload="auto"></audio>
+    <audio autoplay loop id="audio10" src="/Audio/birds-chirping-75156.mp3" preload="auto"></audio>
 
 
- 
-<script src = "https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
 
-<script src = "themes.js" defer ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="themes.js" defer></script>
 </body>
+
 </html>
